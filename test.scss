@@ -6,6 +6,22 @@ $col-2:gray;
   align-items: center;
 }
 
+@mixin flex-display ( $justify, $align, $direction:row){
+  display: flex;
+  justify-content:$justify;
+  align-items: $align;
+  flex-direction:$direction;
+}
+// flex는 기본으로 설정 해줄거면 밑에 display에 $없이 flex; 설정 해주면 되고 활용할 값에는 $display를 안써줘야 오류가 안남. $direction:row처럼 디폴트값이 있는 애들은 맨 뒤에 적어주는게 좋고 디폴트값 쓸거면 include에서 row써도 되고 안써도 디폴트값으로 인식함.
+
+// 여기서는 mixin이랑 extend랑 연습하려고 겹치는 부분도 둘을 나눠서 썼지만 mixin으로 통일에서 쓰는게 더 좋을 것 같음.
+
+@mixin position-setting($top, $left){
+  position: absolute;
+  top: $top;
+  left: $left;
+}
+
 // *{margin: 0; padding:0; box-sizing: border-box;}
 
 body{
@@ -27,9 +43,10 @@ body{
   }
     
   & > div:nth-child(3){
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
+      @include flex-display(center,flex-end,row);
+      // display: flex;
+      // justify-content: center;
+      // align-items: flex-end;
       & > div:nth-child(1){
         width: inherit;
         height: 90px;
@@ -39,9 +56,12 @@ body{
 
   & > div:nth-child(2){
     background-color: $col-1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    @include flex-display(flex-end,initial,column);
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-end;
+    // @mixin설정에는 align-item이 있는데 여기는 align 설정이 안들어감. 이럴때는 mixin에 있는 align-item 순서에 맞게 inclde에 initial 써주면 됨. @include 값 다 써주고 ()뒤에 ;써줄 것.
+
     padding-left: 10px;
     padding-bottom: 10px;
       & > div:nth-child(1){
@@ -50,9 +70,10 @@ body{
         background-color: $col-2;
         @extend.f-center;
         justify-content: space-evenly;
-        position: absolute;
-        top:80px;
-        left:250px;
+        @include position-setting(80px,250px);
+        // position: absolute;
+        // top:80px;
+        // left:250px;
         & > div{
           width: 25px;
           height: 35px;
@@ -66,9 +87,10 @@ body{
     height: 300px;
     border: 3px solid black;
     background-color: transparent;
-    position: absolute;
-    top:105px;
-    left:50px;
+    @include position-setting(105px,50px);
+    // position: absolute;
+    // top:105px;
+    // left:50px;
   }
 
 p{
