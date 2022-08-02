@@ -20,6 +20,7 @@
 #root > header > nav {
   width: 50vw;
   height: 30vh;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,6 +28,7 @@
   background-color: gray;
   margin-top: 15px;
   margin-right: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 #root > header > nav > ul {
   width: 25vw;
@@ -38,11 +40,14 @@
   flex-direction: column;
   line-height: 30px;
 }
-#root > header > nav > ul > li:nth-child(1) {
-  font-size: 25px;
-}
 #root > header > nav > ul > li {
   font-size: 15px;
+  color: rgb(245, 235, 235);
+}
+#root > header > nav > ul > li:nth-child(1) {
+  font-size: 25px;
+  position: relative;
+  top: -30px;
 }
 #root > main {
   width: 100vw;
@@ -53,13 +58,17 @@
   flex-direction: column;
   padding-bottom: 50px;
   padding-left: 30px;
+  background-color: rgb(52, 51, 51);
 }
 #root > main > div {
   width: 50vw;
+  padding-bottom: 50px;
 }
 #root > main > div > h1 {
   font-size: 50px;
+  color: rgb(245, 235, 235);
 }
 #root > main > div > p {
   font-size: 10px;
+  color: rgb(245, 235, 235);
 }/*# sourceMappingURL=markup2training.css.map */

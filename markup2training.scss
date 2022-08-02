@@ -1,4 +1,6 @@
 $col-1:rgb(231, 228, 228);
+$col-2: rgb(245, 235, 235);
+
 
 @mixin flex-setting($justify, $align, $direction:row) {
   display: flex;
@@ -18,14 +20,24 @@ $col-1:rgb(231, 228, 228);
     height: 5vh;
     background-color: $col-1;
     @include flex-setting(right,initial,row);
+    // backdrop-filter: (5px);
+    // filter:blur(5px);
+    
     
     &>nav{
       width: 50vw;
       height: 30vh;
+      position: absolute;
+      
       @include flex-setting(center,center,row);
       background-color: gray;
       margin-top: 15px;
       margin-right: 15px;
+      background-color: rgba(0, 0, 0, 0.3);
+      // rgba를 (0, 0, 0, 0.3) 주고 투명도 해주면 검정색 투명도 생김
+      
+      // background-color: rgba(47, 138, 241, 0.3); 얘는 색이 파란색으로 투명해짐
+      // opacity: 0.2; 얘는 글자까지 다 투명해짐 어떻게 배경만 투명하게 하지??
       
       &>ul{
         width: 25vw;
@@ -33,13 +45,20 @@ $col-1:rgb(231, 228, 228);
         list-style: none;
         @include flex-setting(center,center,column);
         line-height:30px;
+        
+
+        &>li{
+          font-size: 15px;
+          color:$col-2;
+        }
 
         &>li:nth-child(1){
           font-size: 25px;
+          position: relative;
+          top:-30px;
         }
-        &>li{
-          font-size: 15px;
-        }
+      
+        
       }
     }
 
@@ -50,13 +69,17 @@ $col-1:rgb(231, 228, 228);
     @include flex-setting(flex-end,initial,column);
     padding-bottom: 50px;
     padding-left: 30px;
+    background-color: rgb(52, 51, 51);
     &>div{
       width: 50vw;
+      padding-bottom: 50px;
       &>h1{
         font-size:50px;
+        color: $col-2;
       }
       &>p{
         font-size: 10px;
+        color: $col-2;
       }  
     }
     }  
