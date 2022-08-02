@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+#root > header {
+  width: inherit;
+  height: 5vh;
+  background-color: rgb(231, 228, 228);
+  display: flex;
+  justify-content: right;
+  align-items: initial;
+  flex-direction: row;
+}
+#root > header > nav {
+  width: 50vw;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-color: gray;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+#root > header > nav > ul {
+  width: 25vw;
+  height: 35vh;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 30px;
+}
+#root > header > nav > ul > li:nth-child(1) {
+  font-size: 25px;
+}
+#root > header > nav > ul > li {
+  font-size: 15px;
+}
+#root > main {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: initial;
+  flex-direction: column;
+  padding-bottom: 50px;
+  padding-left: 30px;
+}
+#root > main > div {
+  width: 50vw;
+}
+#root > main > div > h1 {
+  font-size: 50px;
+}
+#root > main > div > p {
+  font-size: 10px;
+}/*# sourceMappingURL=markup2training.css.map */

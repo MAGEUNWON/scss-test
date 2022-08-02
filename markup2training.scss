@@ -1,0 +1,64 @@
+$col-1:rgb(231, 228, 228);
+
+@mixin flex-setting($justify, $align, $direction:row) {
+  display: flex;
+  justify-content:$justify;
+  align-items:$align;
+  flex-direction:$direction;
+}
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+#root{
+  width: 100vw;
+  height: 100vh;
+
+  &>header{
+    width: inherit;
+    height: 5vh;
+    background-color: $col-1;
+    @include flex-setting(right,initial,row);
+    
+    &>nav{
+      width: 50vw;
+      height: 30vh;
+      @include flex-setting(center,center,row);
+      background-color: gray;
+      margin-top: 15px;
+      margin-right: 15px;
+      
+      &>ul{
+        width: 25vw;
+        height: 35vh;
+        list-style: none;
+        @include flex-setting(center,center,column);
+        line-height:30px;
+
+        &>li:nth-child(1){
+          font-size: 25px;
+        }
+        &>li{
+          font-size: 15px;
+        }
+      }
+    }
+
+    }
+  &>main{
+    width: 100vw;
+    height: 70vh;
+    @include flex-setting(flex-end,initial,column);
+    padding-bottom: 50px;
+    padding-left: 30px;
+    &>div{
+      width: 50vw;
+      &>h1{
+        font-size:50px;
+      }
+      &>p{
+        font-size: 10px;
+      }  
+    }
+    }  
+  }
+
