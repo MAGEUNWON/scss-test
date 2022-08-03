@@ -1,0 +1,104 @@
+// color
+$col-1:rgb(212, 208, 208);
+$col-2:gray;
+
+// flex-setting
+// .flex{
+//   display: flex;
+//   justify-content: space-around;
+  
+//  
+//   align-content: $align;
+//   flex-direction: $direction;
+// }
+
+@mixin flex-setting($justify, $align, $direction:row){
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin flex-wrap($wrap, $justify,$align, $direction:row){
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: $justify;
+  align-content: $align;
+  flex-direction: $direction;
+  
+}
+
+*{margin: 0; padding:0; box-sizing: border-box;}
+
+
+
+// 모바일
+@media (max-width:767px){
+  .div{
+  @include flex-setting(space-around,center ,column);
+  width: 90vw;
+  height: 90vh;
+  background-color: $col-1;
+  }
+  body>div>div{
+    width: 20vw;
+    height:20vh;
+    background-color: $col-2;
+  }
+}
+
+// @media(max-width:767px){
+//   body>div>div{
+//     width: 20vw;
+//     height:20vh;
+//     background-color: $col-2;
+//   }
+// }
+
+// 테블릿 가로
+@media(min-width:768px) and(max-width:1199px){
+  .div{
+    @include flex-wrap(wrap,space-around,space-around);
+    width: 60vw;
+    height: 50vh;
+    background-color: $col-1;
+  }
+    body>div>div{
+      width: 25vw;
+      height:20vh;
+      background-color: $col-2;
+  }
+}   
+
+// media 안에 속성 다 넣으면 됨. 둘이 분리 안해도 되넹
+
+// @media(min-width:768px) and(max-width:1199px){
+//   body>div>div{
+//     width: 25vw;
+//     height:20vh;
+//     background-color: $col-2;
+//   }
+// }
+
+// 데스크탑
+@media(min-width:1200px){
+  .div{
+    @include flex-setting(space-around,center);
+    width: 100vw;
+    height: 60vh;
+    background-color: $col-1;
+  }
+  body>div>div{
+    width: 20vw;
+    height:25vh;
+    background-color: $col-2;
+  }
+}
+
+// @media(min-width:1200px){
+//   body>div>div{
+//     width: 20vw;
+//     height:25vh;
+//     background-color: $col-2;
+//   }
+// }
